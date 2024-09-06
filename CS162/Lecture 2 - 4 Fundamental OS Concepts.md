@@ -1,3 +1,15 @@
-![[Pasted image 20240905223431.png]]
+
 - Recall that when an OS offers protection, it means that it will prohibit the green program will not be abled to modify the brown program's state, the os state or the storage (otherwise segfault most likely).
-- asdasd
+	- ![[Pasted image 20240905223431.png]]
+- Again OS abstracts underlying hardware:
+	- processor -> threads
+	- memory -> address space
+	- disks, ssds, .. -> files
+	- networks -> sockets
+	- machines -> processes
+- Threads
+	- Recall how instructions are run (from 61c):
+		- ![[Pasted image 20240905233201.png]]
+	- it suffices to consider threads as a virtualized version of the 61c processor
+	- a thread is executing on a processor/core when it is resident in the processor registers:
+	- a thread is suspended when its state is not loaded and another thread is in resident
