@@ -12,4 +12,4 @@
 		- ![[Pasted image 20240905233201.png]]
 	- it suffices to consider threads as a virtualized version of the 61c processor
 	- a thread is executing on a processor/core when it is resident in the processor registers:
-	- a thread is suspended when its state is not loaded and another thread is in resident 
+	- a thread is suspended when its state is not loaded and another thread is in resident  
