@@ -1,7 +1,7 @@
 
 - Recall that when an OS offers protection, it means that it will prohibit the green program will not be abled to modify the brown program's state, the os state or the storage (otherwise segfault most likely).
 	- ![[Pasted image 20240905223431.png]]
-- Again OS abstracts underlying hardware:====
+- Again OS abstracts underlying hardware:
 	- processor -> threads
 	- memory -> address space
 	- disks, ssds, .. -> files
@@ -13,3 +13,15 @@
 	- it suffices to consider threads as a virtualized version of the 61c processor
 	- a thread is executing on a processor/core when it is resident in the processor registers:
 	- a thread is suspended when its state is not loaded and another thread is in resident
+- Illusion of Multiple Processors
+	- assuming a single processor/core, how do we provide the illusion of multiple?
+	- illusion:
+		- ![[Pasted image 20240907032134.png]]
+	- threads are virtual cores
+		- ![[Pasted image 20240907032227.png]]
+		- the content of a thread includes pc, stack pointer, registers
+		- when running it is on the real actual core, when not it is saved in a chunk of memory called the thread control block (tcb)
+			- what triggers the switch? timer, voluntary yield, I/O, other things later.
+	- An alternate view - each thread also maintains its own stack, heap, static data, and code
+		- ![[Pasted image 20240907033237.png]]
+		 - the TCB holds contests of registers when the thread isn't running. for now the tcb's are held in the kernel.

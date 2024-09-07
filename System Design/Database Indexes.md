@@ -1,0 +1,4 @@
+- index: data structure used to efficiently find the value for a particular key in the database
+	- derived from the primary data
+	- doesn't affect db contents - only performance of queries
+		- overhead on writes actually (since you also need to update the index)
