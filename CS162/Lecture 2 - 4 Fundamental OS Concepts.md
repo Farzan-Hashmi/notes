@@ -24,4 +24,4 @@
 			- what triggers the switch? timer, voluntary yield, I/O, other things later.
 	- An alternate view - each thread also maintains its own stack, heap, static data, and code
 		- ![[Pasted image 20240907033237.png]]
-		 - the TCB holds contests of registers when the thread isn't running. for now the tcb's are held in the kernel.
+		 - the TCB holds contests of registers when the thread isn't running. for now the tcb's are held in the kernel. 
