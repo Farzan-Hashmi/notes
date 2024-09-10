@@ -41,4 +41,14 @@
 	- loader places programs into memory and prepares them for execution
 	- relocating loader example: imagine programmer writes program that uses memory addresses 0 through 999, and compiles it. then when program is loaded into memory, os decides to load the new program starting at memory address 1000 (since suppose 0 through 999 is already in use)
 	- ![[Pasted image 20240909233058.png]]
-	- 
+- simple address translation with base and bound (hardware adder converts PC on the fly):
+	- ![[Pasted image 20240909233947.png]]
+- Process:
+	- execution environment with address space and with 1+ threads
+		- threads encapsulate concurrency
+		- address space encapsulate protection
+		- multi threads per process: parallelism (take advantage of hardware parallelism), concurrency (thread a deals with mouse movement, b deals other i/o, etc.)
+- Dual Mode:
+	- hardware provides kernel/supervisor mode and user mode:
+		- operations like changing the page table pointer, disabling interrupts, ... are prohibited in user mode
+		- 
