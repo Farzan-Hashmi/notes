@@ -25,3 +25,20 @@
 	- An alternate view - each thread also maintains its own stack, heap, static data, and code
 		- ![[Pasted image 20240907033237.png]]
 		 - the TCB holds contests of registers when the thread isn't running. for now the tcb's are held in the kernel. 
+- Address Spaces: accessible addresses + state in them
+	- 64 bit processor -> 2^64 addresses
+	- ![[Pasted image 20240909041459.png]]
+	- code segment: code, static: string constants, static vars, stack: local variables, heap: malloc
+- assuming each thread can read/write memory an issue arises -> we can overwrite data of other threads (kinda risky)
+	- simple multiplexing has no protection!
+- OS must protect itself from user programs:
+	- reliability (compromising OS should cause program to crash)
+	- security (limit what threads can do)
+	- privacy (limi each thread to the data it is allowed to access)
+	- fairness (each thread should be limited to its appropriate share of system resources like CPU time, memory, I/O, etc.)
+- it should also protect programs from one another
+- simple protection: base and bound via relocating loader
+	- loader places programs into memory and prepares them for execution
+	- relocating loader example: imagine programmer writes program that uses memory addresses 0 through 999, and compiles it. then when program is loaded into memory, os decides to load the new program starting at memory address 1000 (since suppose 0 through 999 is already in use)
+	- ![[Pasted image 20240909233058.png]]
+	- 
