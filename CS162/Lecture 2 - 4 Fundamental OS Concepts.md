@@ -51,4 +51,4 @@
 - Dual Mode:
 	- hardware provides kernel/supervisor mode and user mode:
 		- operations like changing the page table pointer, disabling interrupts, ... are prohibited in user mode
-		- 
+	
