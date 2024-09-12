@@ -1,1 +1,9 @@
-- stuff
+Lecture 3 - Threads and Processes
+- Recall: Illusion of Multiple Processors
+	- threads: virtual cores
+	- multiple threads: multiplex hardware in time
+	- executed on processor when it is resident in the processor's registers
+	- maintains its own PC, stack pointer, etc.
+- Recall: (Virtual) Address Space
+	- set of accessible addresses + state associated with them
+	- virtual address spae
