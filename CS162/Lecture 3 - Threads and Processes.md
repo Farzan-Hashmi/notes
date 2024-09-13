@@ -6,4 +6,8 @@ Lecture 3 - Threads and Processes
 	- maintains its own PC, stack pointer, etc.
 - Recall: (Virtual) Address Space
 	- set of accessible addresses + state associated with them
-	- virtual address spae
+	- virtual address space: processors view of the memory
+		- independent of physical storage
+	- ![[Pasted image 20240912212844.png]]
+- Recall: Process
+	- 
