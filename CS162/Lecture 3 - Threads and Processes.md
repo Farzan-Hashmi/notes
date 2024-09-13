@@ -34,3 +34,24 @@ Lecture 3 - Threads and Processes
 	- running
 	- ready (eligible)
 	- blocked (maybe due to some i/o operation it is waiting for)
+- once process starts, it issues system calls to create new threads
+- ![[Pasted image 20240912225757.png]]
+- OS lib api for threads: pthreads
+- ![[Pasted image 20240913030900.png]]
+- Programmer's view is like an infinite number of threads and processors. But what actually happens is that the scheduler interleaves and reorders the threads so we need to code multithreaded programs keeping this in mind
+	- assume x == 0 and y == 0
+		- Thread A does:
+			- x = y + 1
+		- Thread B does:
+			- y = 2
+			- y = y * 2
+	- possible values of x can be 1, 3, or 5 (race condition! non deterministic)
+- synchronization: coordination among threads, usually regarding shared data
+	- mutual exclusion: ensures only one thread does a particular thing at a time
+- critical section (code exactly one thread can execute at once)
+- lock: object only on thread can hold at a time
+	- Lock.acquire() wait until lock is free then mark as busy. after this returns, we say the thread holds the lock
+	- Lock.release() mark lock as free
+- pthreads has a mutex (lock) option
+	- ![[Pasted image 20240913032146.png]]
+	- 
