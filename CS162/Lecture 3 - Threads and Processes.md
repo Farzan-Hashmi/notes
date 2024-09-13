@@ -10,4 +10,27 @@ Lecture 3 - Threads and Processes
 		- independent of physical storage
 	- ![[Pasted image 20240912212844.png]]
 - Recall: Process
-	- 
+	- protected environment with 1+ threads and a protected address space
+	- instance of a running program
+- Recall: Dual Mode Operation:
+	- processes execute in user mode, kernels execute in kernel mode
+	- carefully controlled transitions between user mode and kernel mode (system calls, interrupts, exceptions)
+- Thread definitions:
+	- single unique execution context
+	- abstraction of execution sequence that represents a separately schedulable task
+	- mechanism of concurrency (overlapping execution) but can also run in parallel (simultaneous execution)
+- Motivation for Threads:
+	- OS's need to handle multiple things at once (mouse, i/o, MTAO)
+		- network servers, parallel programs, user interface (mouse, mic, camera)
+	- threads can represent one thing or task
+- multiprocessing vs multiprogramming:
+	- multiprocessing = multiple cores/cpus on the same task
+	- multiprogramming = multiple jobs/processes (not necessarily simultaneously)
+	- multithreading = multiple threads/processes
+	- two threads running concurrently: scheduler can run two threads in any order/any interleaving
+- concurrency vs parallelism:
+	- concurrency is MTAO, parallelism is specifically simultaneous and implies concurrency
+- threads are in one of the following three states/queues:
+	- running
+	- ready (eligible)
+	- blocked (maybe due to some i/o operation it is waiting for)
