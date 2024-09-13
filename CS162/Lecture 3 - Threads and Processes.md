@@ -48,10 +48,17 @@ Lecture 3 - Threads and Processes
 	- possible values of x can be 1, 3, or 5 (race condition! non deterministic)
 - synchronization: coordination among threads, usually regarding shared data
 	- mutual exclusion: ensures only one thread does a particular thing at a time
-- critical section (code exactly one thread can execute at once)
+- critical section (code exactly one thread can execute at once -> protected by a lock)
 - lock: object only on thread can hold at a time
 	- Lock.acquire() wait until lock is free then mark as busy. after this returns, we say the thread holds the lock
 	- Lock.release() mark lock as free
 - pthreads has a mutex (lock) option
 	- ![[Pasted image 20240913032146.png]]
-	- 
+- Processes
+	- first process started by kernel
+	- then other processes are created from processes
+	- exit terminates a process
+	- fork creates a brand new process by copying the current process entirely
+		- copies everything to a different address space to create a new process
+			- good example here: https://unix.stackexchange.com/a/57176
+
