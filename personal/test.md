@@ -1,3 +1,5 @@
+test poem
+
 this is just a test to see if like the embeddings work (shouldnt be similar to my operating system stuff)
 
 
