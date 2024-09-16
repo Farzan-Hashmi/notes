@@ -1,4 +1,3 @@
-
 A fun trie problem
 
 problem: https://leetcode.com/problems/longest-common-suffix-queries/description/
