@@ -1,4 +1,4 @@
-Lecture 3 - Threads and Processes
+Lecture 3: Threads and Processes
 - Recall: Illusion of Multiple Processors
 	- threads: virtual cores
 	- multiple threads: multiplex hardware in time
