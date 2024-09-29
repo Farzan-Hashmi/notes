@@ -19,3 +19,4 @@ Lecture 4: Files and IO (Programmers POV)
 		* ![[Pasted image 20240914195425.png]]
 		* wait - waits for a child process to finish
 			* this one takes a pointer to an integer
+* 
