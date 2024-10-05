@@ -1,0 +1,53 @@
+IPC, Pipes and Sockets
+
+- The write function adds it to the output queue. Recall that every socket has two queues/pipes (one for producing and one for consuming).
+- The read function removes a message from the input queue. Recall that every socket has two queues/pipes (one for producing and one for consuming).
+- **Simple Example: Echo Server**
+  - **Client (issues requests):**
+    - `fgets(sndbuf,bufsize,stdin);`
+    - `write(sockfd,sndbuf,strlen(sndbuf)+1);`
+    - `n = read(sockfd,rcvbuf,…);`
+    - Wait
+    - Print
+  - **Server (services requests):**
+    - `n = read(sockfd,reqbuf,…);`
+    - Wait
+    - Print `write(sockfd,reqbuf,…);`
+- Server socket (with say some ip: x and port: y) is setup to start allowing clients to connect to ip:x and port: y. Client requests connection, then server socket accepts and creates new socket that established bi-directional communication with client socket.
+- The client has a "socket" and initiates a "Request Connection" to the server's "Server Socket".
+- Upon receiving the request, the server socket listens and responds.
+- If the server accepts the connection, a "new socket" is created.
+- This new socket is referred to as the "Connection Socket", connecting the client and the server.
+- The connection flow is represented with arrows indicating the direction of the requests and responses.
+- The 5-tuple that uniquely identifies a client socket connection consists of:
+  - Source IP Address  
+  - Destination IP Address  
+  - Source Port Number  
+  - Destination Port Number  
+  - Protocol (always TCP here)  
+- Only the client source IP address and source port number changes when connecting to the same port on the same server for the yellow connections.
+- The two methods (syscalls) server sockets have are listen and accept.
+- The listen syscall for server sockets establishes that it is ready to listen to client socket connection requests.
+- The accept syscall for server sockets accepts a client connection, obtaining a new socket to send stuff to.
+- Sockets with Protection (each connection has own process):
+  - **Client:**
+    - Create Client Socket
+    - Connect it to server (host:port)
+    - Connection Socket
+      - write request
+      - read response
+    - Close Client Socket
+  - **Server:**
+    - Create Server Socket
+    - Bind it to an Address (host:port)
+    - Listen for Connection
+      - Accept syscall()
+      - Connection Socket (Child)
+        - Close Listen Socket
+        - read request
+        - write response
+        - Close Connection Socket
+    - Parent
+      - Close Connection Socket
+      - Wait for child
+    - Close Server Socket
