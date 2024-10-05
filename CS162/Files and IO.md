@@ -1,4 +1,4 @@
-Lecture 4: Files and IO (Programmers POV)
+Files and IO (Programmers POV)
 
 - Recall synchronization between threads:
 	- mutual exclusion: one thread doing one thing at a particular time (operating on the critical section via locks)

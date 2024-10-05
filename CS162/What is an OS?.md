@@ -1,4 +1,4 @@
-Lecture 1: What is an OS?
+What is an OS?
 - What is an OS?
 	- layer of software that provides apps access to hardware
 		- abstract complicated hardware stuff
