@@ -19,4 +19,39 @@ Lecture 4: Files and IO (Programmers POV)
 		* ![[Pasted image 20240914195425.png]]
 		* wait - waits for a child process to finish
 			* this one takes a pointer to an integer
-* 
+- Purpose of the buffer in a FILE *: user level buffer
+- Purpose of a lock in the FILE *: in case multiple threads are using FILE concurrently
+- Purpose of the fflush method (higher level FILE API): it is meant to forcefully flush the contents of the buffer at the user level to the kernel
+- Code example:
+  ```
+  char x = ‘c’;
+  FILE* f1 = fopen(“file.txt”, “wb”);
+  fwrite(“b”, sizeof(char), 1, f1);
+  fflush(f1);
+  FILE* f2 = fopen(“file.txt”, “rb”);
+  fread(&x, sizeof(char), 1, f2);
+  ```
+- Mapping the kernel maintains: a mapping from descriptor to open file description
+- Contents of an Open File Description (that the kernel maintains): where to find file data on disk, current position in file, etc.
+- When you fork a process, both the parent and child process (in the kernel space) have the file descriptor point to the same file descriptor.
+- Open File Description is Aliased:
+  - Process 1
+    - Thread's Regs
+    - Address Space (Memory)
+    - File Descriptors: 3
+  - Process 2
+    - Thread's Regs
+    - Address Space (Memory)
+    - File Descriptors: 3
+  - Kernel Space: Initially contains 0, 1, and 2 (stdin, stdout, stderr)
+  - User Space: Open File Description:
+    - File: foo.txt
+    - Position: 100
+- What fork() returns for a child: 0
+- What fork() returns for a parent: Greater than 0
+- What int dup (int old fd) does: create a duplicate file descriptor from old fd
+- What int dup2(old fd, new fd) does: custom, create a copy of old fd and assign to new fd
+
+
+
+
